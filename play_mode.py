@@ -49,7 +49,8 @@ def update():
 def finish():
     game_world.clear()
     pass
-def pause(): pass
-def resume(): pass
-
+def pause():
+    boy.wait_time = 100000000000000000000000.0
+def resume():
+    boy.wait_time = get_time()
 

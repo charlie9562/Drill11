@@ -1,4 +1,5 @@
-from sdl2 import SDL_QUIT, SDL_KEYDOWN, SDLK_ESCAPE, SDLK_SPACE
+import pico2d
+from sdl2 import SDL_QUIT, SDL_KEYDOWN, SDLK_ESCAPE, SDLK_SPACE, SDLK_1
 
 import game_framework
 from pico2d import load_image, delay, clear_canvas, update_canvas, get_events, get_time
@@ -23,6 +24,18 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.pop_mode()
+        elif event.type == SDL_KEYDOWN:
+            match event.key:
+                case pico2d.SDLK_1:
+                    play_mode.boy.item = 'Ball'
+                    game_framework.pop_mode()
+                case pico2d.SDLK_2:
+                    play_mode.boy.item = 'BigBall'
+                    game_framework.pop_mode()
+                case pico2d.SDLK_0:
+                    play_mode.boy.item = None
+                    game_framework.pop_mode()
+
 def update():
     game_world.update()
 def draw():
@@ -30,5 +43,7 @@ def draw():
     game_world.render()
     update_canvas()
 
-def pause(): pass
-def resume(): pass
+def pause():
+    pass
+def resume():
+    pass
