@@ -160,6 +160,7 @@ class Boy:
         self.state_machine = StateMachine(self)
         self.state_machine.start()
 
+
     def fire_ball(self):
 
         ball = Ball(self.x, self.y, self.face_dir*10)

@@ -24,3 +24,6 @@ def draw():
     image.draw(400,300)
     update_canvas()
     pass
+
+def pause(): pass
+def resume(): pass
